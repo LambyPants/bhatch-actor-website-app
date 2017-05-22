@@ -1,0 +1,24 @@
+{
+  "name": "brianactorportfolio",
+  "version": "1.0.0",
+  "description": "This is a professional portfolio site made for Brian Anthony Hatch, actor",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Lambert",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "method-override": "^2.3.8",
+    "mongoose": "^4.10.0",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0"
+  }
+}

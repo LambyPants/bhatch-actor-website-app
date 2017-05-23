@@ -38,6 +38,13 @@ font-family: 'Amatic SC', cursive;
  color: white;
  
 }
+.navbar .demo-reels a{
+color:  white;
+}
+.navbar .demo-reels a:hover {
+text-decoration: none;
+ color: #777;
+}
 .nav>li>a>img{
  max-width: 100%;
 }
@@ -170,6 +177,7 @@ margin-top: 50%;
  background-size: cover;
  background-position: 50% 65%;
  opacity: 1;
+ animation: imageAnimation 2s linear;
 }
 #bio .about-me h3 {
  color: white;
@@ -230,4 +238,27 @@ height: auto;
   font-size: 1.8em;
  }
 
+}
+.modal-title {
+ text-align: center;
+ font-size: 2.0em;
+}
+.modal-header .close {
+ font-size: 2.7em;
+ color: #090a1d;
+}
+
+#contact {
+ z-index: -3;
+ position: absolute;
+ right: 0;
+ top:0;
+ width: 90%;
+ height: 100%;
+  background-image: url('https://res.cloudinary.com/dlksliyac/image/upload/v1495307246/Brian_Hatch_137_fnuvbj.jpg');
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: 50% 50%;
+ opacity: 1;
+ animation: imageAnimation 2s linear;
 }

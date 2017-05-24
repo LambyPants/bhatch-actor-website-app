@@ -280,6 +280,9 @@ float: right;
  right: 1%;
  font-size: 3.0em;
 }
+.scroll-container h3 {
+ font-size: .78em;
+}
 #media ul {
  margin: 40px 0;
 }
@@ -354,10 +357,14 @@ float: right;
  body, html{
   overflow-y: auto;
  }
+ .navbar {
+  margin-bottom: 0;
+ }
   #homepage {
-   margin-top:30px;
+
   width: 100%;
-  z-index: -1;
+  z-index: 3;
+  position: relative;
  }
  .testimonials h4 {
  font-size: 2.4em;
@@ -369,9 +376,9 @@ margin-bottom: 5%;
 }
  #bio {
 
-  margin-top: 38px;
   width: 100%;
-  z-index:-1;
+  z-index: 3;
+  position: relative;
  
  }
  #bio p {
@@ -379,15 +386,17 @@ margin-bottom: 5%;
  }
  #media{
   width: 100%;
-  margin-top: 30px;
-  z-index: -1;
-  height: auto;
+  margin-top: 50px;
+  z-index: 3;
+  position: relative;
+ }
+ #contact li {
+  font-size: 4.2em;
  }
   #contact {
-
-  margin-top: 30px;
   width: 100%;
-  z-index:-1;
+  z-index: 3;
+  position: relative;
 
   
  }
@@ -395,6 +404,7 @@ margin-bottom: 5%;
   margin: 0;
   width: 100%;
  }
+
 
 
 }

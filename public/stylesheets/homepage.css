@@ -128,7 +128,7 @@ left: 13%;
 width:  30%;
 }
 .testimonials h4 {
- font-size: 2.8em;
+ font-size: 3.4em;
 color: white;
     text-shadow:
     -1px -1px 0 #000,
@@ -172,19 +172,23 @@ margin-top: 30%;
 
 
 #bio {
- z-index: -3;
+
  position: absolute;
  right: 0;
  top:0;
- width: 95%;
+ width: 88%;
  height: 100%;
   background-image: url('https://res.cloudinary.com/dlksliyac/image/upload/v1495381464/BRIAN_HATCH_-_Headshot_3_vfz1qm.jpg');
  background-repeat: no-repeat;
  background-size: cover;
- background-position: 50% 65%;
+ background-position: 60% 70%;
  opacity: 1;
  animation: imageAnimation 2s linear;
+ overflow: auto;
+
+
 }
+
 #bio .about-me h3 {
  color: white;
  text-align: center;
@@ -257,9 +261,15 @@ line-height: 1.4em;
 }
 
 #media .container-fluid h1 {
+ font-size: 3.0em;
+ text-align: center;
  color: white;
  
 }
+#media .container-fluid a {
+ color: #d5ea5c;
+}
+
 #media .scroll-container {
  width: 20%;
  position:fixed;
@@ -276,7 +286,7 @@ float: right;
 #media ul li {
   background: #355258;
  color: white;
- font-size: 2.0em;
+ font-size: 2.4em;
 
 }
 #media  .thumbnail {
@@ -296,6 +306,7 @@ float: right;
  background-position: 40% 0%;
  opacity: 1;
  animation: imageAnimation 2s linear;
+    overflow-y: auto;
 }
 #contact .contact-info h3 {
  color: white;
@@ -357,8 +368,8 @@ margin-bottom: 5%;
  text-align: center;
 }
  #bio {
-height: auto;
-  margin-top: 30px;
+
+  margin-top: 38px;
   width: 100%;
   z-index:-1;
  
@@ -373,11 +384,16 @@ height: auto;
   height: auto;
  }
   #contact {
-height: auto;
+
   margin-top: 30px;
   width: 100%;
   z-index:-1;
+
   
+ }
+ #contact .contact-info {
+  margin: 0;
+  width: 100%;
  }
 
 

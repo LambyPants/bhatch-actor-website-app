@@ -22,4 +22,7 @@ var url = "";
 $('.demo-reels').on('click', 'a', (function(){
  console.log($(this).attr('target'));
  url = ($(this).attr('target'));
+ 	var title = $(this).attr("title"); console.log(title);
+  	$('.modal-title').html(title);
+
 }));

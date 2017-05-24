@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/homepage.css"></link>
 <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+<script src="https://use.fontawesome.com/3f110b5b7d.js"></script>
  </head>
  <body>
 <nav class="navbar navbar-default">
@@ -27,23 +28,27 @@
       <ul class="nav navbar-nav">
         <li class="list-group-item custom-active"><a href="/"> Home</a></li>
         <li class="list-group-item"><a href="/bio">About <span class="sr-only">(current)</span></a></li>
-        <li class="list-group-item"><a href="#">Media</a></li>
-        <li class="list-group-item"><a href="#">Contact</a></li>
+        <li class="list-group-item"><a href="/media">Media</a></li>
+        <li class="list-group-item"><a href="/contact">Contact</a></li>
             <!-- Button HTML (to Trigger Modal) -->
             <span class="demo-reels">
-        <li class="list-group-item"><a target="//www.youtube.com/embed/DXUAyRRkI6k" href="#myModal" data-toggle="modal">Demo Reel 1<img class="img-responsive img-thumbnail" src="https://i.ytimg.com/vi/Kc07l7YvIPM/default.jpg"</a></li>
-        <li class="list-group-item"><a target="//www.youtube.com/embed/-K2eaZ3F4k8" href="#myModal" data-toggle="modal">Demo Reel 2<img class="img-responsive img-thumbnail" src="https://i.ytimg.com/vi/Kc07l7YvIPM/default.jpg"</a></li>
-            </span>
-        <li class="list-group-item"><a href="#">Open Resume</a></li>
-        
+        <li class="list-group-item"><a title="Film / TV Demo " target="//www.youtube.com/embed/DXUAyRRkI6k" href="#myModal" data-toggle="modal">Demo Reel 1<img class="img-responsive img-thumbnail" src="https://i.ytimg.com/vi/Kc07l7YvIPM/default.jpg"</a></li>
+        <li class="list-group-item"><a title="Commercial Demo" target="//www.youtube.com/embed/-K2eaZ3F4k8" href="#myModal" data-toggle="modal">Demo Reel 2<img class="img-responsive img-thumbnail" src="https://i.ytimg.com/vi/Kc07l7YvIPM/default.jpg"</a></li>
+        <li class="list-group-item"><a title="Resume" target="https://drive.google.com/file/d/0BzlZGNHBgaHTTmYzVXRBSmtBcTgwNkZVVWIyc19hVUk4VnNz/preview" href="#myModal" data-toggle="modal">Open Resume</a></li>
+           </span>
       </ul>
-
 
        <div class="signature"> <img src="https://res.cloudinary.com/dlksliyac/image/upload/v1495313173/Screen_Shot_2017-05-20_at_1.03.14_PM_pakzvw.png"></div>
     </div><!-- /.navbar-collapse -->
 <div class="bs-example">
 
-    
+ 
+
+</nav>
+
+
+
+   
     <!-- Modal HTML -->
     <div id="myModal" class="modal fade">
         <div class="modal-dialog">
@@ -53,12 +58,11 @@
                     <h4 class="modal-title">Demo Reel | Brian Hatch</h4>
                 </div>
                 <div class="modal-body">
-                    <iframe id="cartoonVideo" width="560" height="315" src="//www.youtube.com/embed/YE7VzlLtp-4" frameborder="0" allowfullscreen></iframe>
+                    <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" id="cartoonVideo" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
                 </div>
             </div>
         </div>
     </div>
 </div> 
-
-</nav>
-

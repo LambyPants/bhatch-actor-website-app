@@ -25,13 +25,22 @@
                  Announcements / What I'm Up To
                  <hr>
              </h1>
+              <a href="/media/new" class="btn btn-primary">New Announcement</a> 
          </div>
          <div class="col-lg-12">
 
              <ul class="list-group">
+              <% announcement.reverse().forEach(function(announcement){ %>
                  <li class="list-group-item">
-                     Upcoming show! Read about it here....
-                 </li>                 
+                     <%=announcement.text%>
+                  <a href="/media/<%=announcement._id%>/edit" class="btn btn-warning">Edit</a> 
+                  <form id="delete" action="/<%=announcement._id%>?_method=DELETE" method="POST">
+                      <button class="btn btn-danger">Delete</button>
+                  </form>
+                  
+                  </li>  
+                 <% }); %>
+                 
                  <li class="list-group-item">
                      Featured in this commercial! Check it out <a href="#">here!</a>
                  </li>                
@@ -49,12 +58,13 @@
                  Photos / Previous Productions
                  <hr>
              </h1>
-            
+            <% photo.reverse().forEach(function(photo, i){ %>
       	<div class="col-lg-3 col-md-4 col-sm-6">
 			<a title="Image 1" class="sameHeight"  href="#">
-				<img class="thumbnail img-responsive " id="image-1" src="//c1.staticflickr.com/8/7398/15784880654_61ee9b5a9d_h.jpg">
+				<img class="thumbnail img-responsive " id="image-<%=i +1%>" src="<%=photo.link%>">
 			</a>
 		</div>
+		<% }); %>
 
 			<div class="col-lg-3 col-md-4 col-sm-6">
 				<a title="Image 2" class="sameHeight" href="#">

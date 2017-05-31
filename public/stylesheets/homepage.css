@@ -266,8 +266,11 @@ line-height: 1.4em;
  color: white;
  
 }
-#media .container-fluid a {
+#media ul a {
  color: #d5ea5c;
+}
+#white-link{
+ color: white !important;
 }
 
 #media .scroll-container {
@@ -349,7 +352,47 @@ float: right;
 
 }
 
+/*edit routes and new routes */
 
+h1 {
+ color: white;
+ font-size: 4.0em;
+}
+
+.inline-buttons {
+    display: inline;
+}
+
+form .form-group input {
+ font-size: 2.0em;
+width: 145%;
+}
+
+label {
+ color: white;
+ font-size: 2.0em;
+}
+
+.fa.fa-pencil-square-o{
+ font-size: 1.4em;
+}
+.fa.fa-trash{
+ font-size: 1.4em;
+}
+.btn.btn-primary{
+ font-size: 2.0em;
+}
+
+.overflow {
+ overflow: auto;
+}
+.well, ul li {
+ font-size: 1.1em;
+ display: inline-block;
+ margin: auto;
+text-align: left;
+overflow: auto;
+}
 
 
 /* Handle resizes mobile */
@@ -434,9 +477,19 @@ background-position: 76% 30%;
 }
 .modal-title {
  text-align: center;
- font-size: 2.0em;
+ font-size: 3.0em;
 }
 .modal-header .close {
- font-size: 2.7em;
+ font-size: 3.2em;
  color: #090a1d;
 }
+.carousel-inner img {
+ width: 100%;
+ margin:0 auto;
+}
+.carousel-control.left, .carousel-control.right{
+ background: none;
+ height: 90%;
+ margin: 0 -30px -30px -30px;
+}
+

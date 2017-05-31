@@ -25,49 +25,47 @@
                  Announcements / What I'm Up To
                  <hr>
              </h1>
-              <a href="/media/new" class="btn btn-primary">New Announcement</a> 
+              <a href="/media/new" class="btn btn-primary btn-lg">New Announcement <i class="fa fa-bullhorn" aria-hidden="true"></i></a> 
          </div>
          <div class="col-lg-12">
 
              <ul class="list-group">
               <% announcement.reverse().forEach(function(announcement){ %>
+                
                  <li class="list-group-item">
-                     <%=announcement.text%>
-                  <a href="/media/<%=announcement._id%>/edit" class="btn btn-warning">Edit</a> 
-                  <form id="delete" action="/<%=announcement._id%>?_method=DELETE" method="POST">
-                      <button class="btn btn-danger">Delete</button>
+                     <%-announcement.text%>
+         
+                  <a id="white-link" href="/media/<%=announcement._id%>/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
+             
+                  <form class="inline-buttons" id="delete" action="/<%=announcement._id%>?_method=DELETE" method="POST">
+                      <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                   </form>
-                  
+              
                   </li>  
                  <% }); %>
-                 
-                 <li class="list-group-item">
-                     Featured in this commercial! Check it out <a href="#">here!</a>
-                 </li>                
-                 <li class="list-group-item">
-                     Upcoming show! Read about it here....
-                 </li>                 
-                 <li class="list-group-item">
-                     Featured in this commercial! Check it out <a href="#">here!</a>
-                 </li>
              </ul>
          </div>
      </div>
     <div class="row">
+        <div class="col-lg-12">
              <h1>
                  Photos / Previous Productions
                  <hr>
              </h1>
-        <a href="/media/photos/new" class="btn btn-primary">New Photo</a> 
+        <a href="/media/photos/new" class="btn btn-primary btn-lg">New Photo <i class="fa fa-file-image-o" aria-hidden="true"></i></a> 
+        </div>
             <% photo.reverse().forEach(function(photo, i){ %>
       	<div class="col-lg-3 col-md-4 col-sm-6">
 			<a title="<%=photo.title%>" class="sameHeight"  href="#">
 				<img class="thumbnail img-responsive " id='<%=i%>' src="<%=photo.link%>">
 			</a>
-			  <a href="/media/photos/<%=photo._id%>/edit" class="btn btn-warning">Edit</a> 
-                <form id="delete" action="/photos/<%=photo._id%>?_method=DELETE" method="POST">
-                      <button class="btn btn-danger">Delete</button>
+   <span class="carousel-buttons">
+			   <a href="/media/photos/<%=photo._id%>/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
+			 
+                <form class="inline-buttons" id="delete" action="/photos/<%=photo._id%>?_method=DELETE" method="POST">
+                      <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 </form>
+       </span>         
 		</div>
 		<% }); %>
 
@@ -114,9 +112,6 @@
           <a class="carousel-control left" href="#modalCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
           <a class="carousel-control right" href="#modalCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
         </div>
-	</div>
-	<div class="modal-footer">
-		<button class="btn btn-default" data-dismiss="modal">Close</button>
 	</div>
    </div>
   </div>

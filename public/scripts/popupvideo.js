@@ -59,7 +59,7 @@ $('#modalCarousel').on('slid.bs.carousel', function () {
 
 /* when clicking a thumbnail */
 $('.row .thumbnail').click(function(){
-
+$(this).children(".buttons-to-hide").addClass("hide");
     var idx = $(this).attr('id'); console.log(idx);
   	var id = parseInt(idx);
   	$('#myModal2').modal('show'); // show the modal

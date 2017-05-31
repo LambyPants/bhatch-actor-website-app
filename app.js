@@ -5,15 +5,18 @@ var bodyParser = require("body-parser");
 var methodOverride = require('method-override');
 var Announcement = require("./models/announcement");
 var Photo = require("./models/photos");
+var expressSanitizer = require('express-sanitizer');
+
 mongoose.connect('mongodb://localhost/bhatch_portfolio_app');
 
 //App Config
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(expressSanitizer());
 app.use(methodOverride('_method'));
 
-//RESTful Routes
+//ROUTES
 
 //INDEX Route
 app.get('/', function(req,res){
@@ -61,6 +64,7 @@ app.get('/media/photos/new', function(req,res){
 //CREATE Announcement
 
 app.post('/media', function(req,res){
+ req.body.announcement.text = req.sanitize(req.body.announcement.text);
 var formData = req.body.announcement;
 Announcement.create(formData, function(err, newAnnouncement){
  if(err){

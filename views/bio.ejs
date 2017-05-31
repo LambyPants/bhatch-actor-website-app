@@ -11,15 +11,10 @@
     <h3 class="panel-title">About Brian</h3>
   </div>
   <div class="panel-body">
-   <p>Spicy jalapeno bacon ipsum dolor amet salami shankle frankfurter meatloaf pork belly, turkey bacon jowl leberkas rump ham pork loin ribeye venison. 
-   Ham hock rump pastrami, chicken beef ribs capicola tail sirloin ball tip. Sausage ham hock pancetta, kielbasa cupim corned beef pork burgdoggen tri-tip 
-   leberkas beef porchetta. Chicken cow meatloaf short loin porchetta beef turkey landjaeger rump t-bone sausage.</p>
-
-<p>Pig alcatra doner shoulder beef t-bone. Shoulder meatball rump filet mignon leberkas shank alcatra bacon jerky cow strip steak. 
-Chuck strip steak tri-tip turducken corned beef shankle t-bone short loin beef cupim venison ground round kevin. Beef pork shoulder andouille bacon fatback.</p>
-<p>Capicola shank hamburger pork belly prosciutto jerky corned beef landjaeger tail sausage rump. Prosciutto porchetta t-bone sirloin. Kevin hamburger meatloaf ham brisket drumstick short ribs andouille. Pig ham hock picanha cow meatloaf fatback strip steak andouille boudin. T-bone jerky ham, short loin salami hamburger doner venison. Landjaeger filet mignon ham hock shoulder boudin pancetta.</p>
-
-
+  <% bio.forEach(function(bio){%>
+    <%-bio.text%>
+   <a id="white-link" href="/bio/<%=bio._id%>/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
+   <% });%>
   </div>
 </div>
 </div>

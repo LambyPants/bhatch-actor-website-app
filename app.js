@@ -3,10 +3,12 @@ var app = express();
 var mongoose    = require("mongoose");
 var bodyParser = require("body-parser");
 var methodOverride = require('method-override');
-var Announcement = require("./models/announcement");
-var Photo = require("./models/photos");
 var expressSanitizer = require('express-sanitizer');
 
+//Routes Config
+var Announcement = require("./models/announcement");
+var Photo = require("./models/photos");
+var Bio = require("./models/bio");
 mongoose.connect('mongodb://localhost/bhatch_portfolio_app');
 
 //App Config
@@ -25,7 +27,13 @@ app.get('/', function(req,res){
 
 //SHOW bio page
 app.get('/bio', function(req,res){
- res.render('bio');
+ Bio.find({}, function(err, bio){
+  if(err){
+   console.log(err);
+  } else {
+  res.render('bio', {bio: bio});
+  }
+ });
 });
 
 //SHOW contact page
@@ -110,6 +118,17 @@ app.get("/media/photos/:id/edit", function(req,res){
  });
 });
 
+//SHOW Bio
+app.get("/bio/:id/edit", function(req,res){
+ Bio.findById(req.params.id, function(err, bio){
+  if(err){
+   res.redirect("/bio");
+  } else {
+   res.render("bio/edit", {bio:bio});
+  }
+ });
+});
+
 //UPDATE Announcement
 app.put("/media/:id", function(req,res){
  Announcement.findByIdAndUpdate(req.params.id, req.body.announcement, function(err, updatedAnnouncement){
@@ -130,6 +149,17 @@ app.put("/media/photos/:id", function(req,res){
   } else {
    res.redirect("/media");
   }
+ });
+});
+
+//UPDATE Bio
+app.put("/bio/:id", function(req, res){
+ Bio.findByIdAndUpdate(req.params.id, req.body.bio, function(err, updatedBio) {
+     if(err){
+      console.log(err);
+     } else {
+      res.redirect("/bio");
+     }
  });
 });
 
@@ -154,6 +184,21 @@ app.delete("/photos/:id", function(req,res){
   }
  });
 });
+
+
+// //Database Seed
+
+// var newBio = new Bio({
+//  text: "<p>Spicy jalapeno bacon ipsum dolor amet salami shankle frankfurter meatloaf pork belly, turkey bacon jowl leberkas rump ham pork loin ribeye venison. Ham hock rump pastrami, chicken beef ribs capicola tail sirloin ball tip. Sausage ham hock pancetta, kielbasa cupim corned beef pork burgdoggen tri-tip leberkas beef porchetta. Chicken cow meatloaf short loin porchetta beef turkey landjaeger rump t-bone sausage.</p><p>Pig alcatra doner shoulder beef t-bone. Shoulder meatball rump filet mignon leberkas shank alcatra bacon jerky cow strip steak. Chuck strip steak tri-tip turducken corned beef shankle t-bone short loin beef cupim venison ground round kevin. Beef pork shoulder andouille bacon fatback.</p><p>Capicola shank hamburger pork belly prosciutto jerky corned beef landjaeger tail sausage rump. Prosciutto porchetta t-bone sirloin. Kevin hamburger meatloaf ham brisket drumstick short ribs andouille. Pig ham hock picanha cow meatloaf fatback strip steak andouille boudin. T-bone jerky ham, short loin salami hamburger doner venison. Landjaeger filet mignon ham hock shoulder boudin pancetta.</p>"
+// });
+
+// newBio.save(function(err, bio){
+//  if(err){
+//   console.log(err);
+//  } else {
+//   console.log(bio);
+//  }
+// });
 
 app.listen(process.env.PORT, process.env.IP, function(){
  console.log("Portfolio is a go!");

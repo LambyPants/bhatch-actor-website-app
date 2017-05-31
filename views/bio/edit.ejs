@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+
+<div class="row">
+	<div class="col-lg-6 col-sm-offset-3">
+		<h1>Edit Bio</h1>
+		<form action="/bio/<%=bio._id%>?_method=PUT" method="POST">
+			<div class="form-group">
+				<label>Bio Text</label>
+				<textarea name="bio[text]" class="form-control"><%= bio.text %></textarea>
+			</div>
+			<button class="btn btn-primary">Update</button>
+		</form>
+	</div>
+	
+	<div class="row">
+	<div class="col-sm-offset-3 col-lg-6">
+		<div class="well well-lg">
+			<ul>
+			<li><h3>Add a line between paragraphs:</h3> <xmp><p>Your text between these two tags creates a new line</p></xmp></li>
+			<li><h3>Add italics:</h3> <xmp><em>Place the text you want with italics between these tags</em></xmp></li>
+			<li><h3>Add bold:</h3> <xmp><strong>Place the text you want to be bold between these tags</strong></xmp></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Brian Hatch | Actor</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/homepage.css"></link>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+<script src="https://use.fontawesome.com/3f110b5b7d.js"></script>
+<link rel='shortcut icon' type='image/x-icon' href='/stylesheets/favicon.ico' />
+ </head>
+ <body>
+<div class="container">
+<div class="row">
+	<div class="col-lg-6 col-sm-offset-3">
+		<h1>Edit Navbar Links</h1>
+		<form action="/navbar/<%=nav._id%>?_method=PUT" method="POST">
+
+					<div class="form-group">
+				<label>Reel 1 Title</label>
+				<input type="text" value="<%= nav.filmReel.title %>" name="nav[filmReel][title]" class="form-control">				
+				<label>Reel 1 URL</label>
+				<input type="text" value="<%= nav.filmReel.url %>" name="nav[filmReel][url]" class="form-control">				
+				<label>Reel 1 Image</label>
+				<input type="text" value="<%= nav.filmReel.image %>" name="nav[filmReel][image]" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Reel 2 Title</label>
+				<input type="text" value="<%= nav.commercialReel.title %>" name="nav[commercialReel][title]" class="form-control">				
+				<label>Reel 1 URL</label>
+				<input type="text" value="<%= nav.commercialReel.url%>" name="nav[commercialReel][url]" class="form-control">				
+				<label>Reel 1 Image</label>
+				<input type="text" value="<%= nav.commercialReel.image %>" name="nav[commercialReel][image]" class="form-control">
+		</div>
+					<div class="form-group">
+				<label>Voice Over URL</label>
+				<input type="text" value="<%= nav.voiceOverReel %>" name="nav[voiceOverReel]" class="form-control">			
+			</div>
+				<div class="form-group">
+				<label>Resume URL</label>
+				<input type="text" value="<%= nav.resume %>" name="nav[resume]" class="form-control">			
+			</div>
+			</div>
+			<button class="btn btn-primary">Update</button>
+		</form>
+	</div>
+	
+	<div class="row">
+	<div class="col-sm-offset-3 col-lg-6">
+		<div class="well well-lg">
+			<ul>
+			<li><h3>Update Links:</h3> <xmp>Post any photo URL beginning with HTTPS:// - I recommend Cloudinary for hosting your new images.</xmp></li>
+			<li><h3>Update Videos:</h3> <xmp>For YouTube videos, be sure you use the 'Embed' link url (you can find this by clicking 'share'->'embed' on the youtube video page).</xmp></li>
+			<li><h3>Update Resume / Voiceover:</h3> <xmp>These two links come from Google Drive; get the 'embed' link by clicking options->embed.</xmp></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+
+<% include ../partials/footer %>

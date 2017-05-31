@@ -34,12 +34,15 @@
         <li class="list-group-item"><a href="/contact">Contact</a></li>
             <!-- Button HTML (to Trigger Modal) -->
             <span class="demo-reels">
-        <li class="list-group-item"><a title="Film / TV Demo " target="https://www.youtube.com/embed/mSMgSMmdvLw" href="#myModal" data-toggle="modal">Film/TV Demo<img class="img-responsive img-thumbnail" src="https://i.ytimg.com/vi/mSMgSMmdvLw/default.jpg"</a></li>
-        <li class="list-group-item"><a title="Commercial Demo" target="https://www.youtube.com/embed/ElCXmrBiYAw" href="#myModal" data-toggle="modal">Commercial Demo<img class="img-responsive img-thumbnail" src="https://i.ytimg.com/vi/ElCXmrBiYAw/default.jpg"</a></li>
-        <li class="list-group-item"><a title="Voice Over Demo" target="https://drive.google.com/file/d/0BzlZGNHBgaHTVmc1a1RCM2tsRW8tUldoaHdNNXY2WUZXSGs0/preview" href="#myModal" data-toggle="modal">Voice Over Demo <i class="fa fa-microphone" aria-hidden="true"></i></a></li>
-        <li class="list-group-item"><a title="Resume" target="https://drive.google.com/file/d/0BzlZGNHBgaHTTmYzVXRBSmtBcTgwNkZVVWIyc19hVUk4VnNz/preview" href="#myModal" data-toggle="modal">Open Resume <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                <%nav.forEach(function(nav){ %>
+        <li class="list-group-item"><a title="<%=nav.filmReel.title%>" target="<%=nav.filmReel.url%>" href="#myModal" data-toggle="modal"><%=nav.filmReel.title%><img class="img-responsive img-thumbnail" src="<%=nav.filmReel.image%>"</a></li>
+        <li class="list-group-item"><a title="<%=nav.commercialReel.title%>" target="<%=nav.commercialReel.url%>"href="#myModal" data-toggle="modal"><%=nav.commercialReel.title%><img class="img-responsive img-thumbnail" src="<%=nav.commercialReel.image%>"</a></li>
+        <li class="list-group-item"><a title="Voice Over Demo" target="<%=nav.voiceOverReel%>" href="#myModal" data-toggle="modal">Voice Over Demo <i class="fa fa-microphone" aria-hidden="true"></i></a></li>
+        <li class="list-group-item"><a title="Resume" target="<%=nav.resume%>" href="#myModal" data-toggle="modal">Open Resume <i class="fa fa-file-text-o" aria-hidden="true"></i>
 </a></li>
-           </span>
+			   <a href="/navbar/<%=nav._id%>/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
+<% }); %>
+            </span>
       </ul>
 
        <div class="signature"> <img src="https://res.cloudinary.com/dlksliyac/image/upload/v1495313173/Screen_Shot_2017-05-20_at_1.03.14_PM_pakzvw.png"></div>

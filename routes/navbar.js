@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var isLoggedIn = require("../middleware/index");
 
 var Nav = require("../models/navbar");
 
 
 //SHOW Navbar
-router.get("/navbar/:id/edit", function(req,res){
+router.get("/navbar/:id/edit", isLoggedIn, function(req,res){
  
  Nav.findById(req.params.id, function(err, nav){
   if(err){
@@ -19,7 +20,7 @@ router.get("/navbar/:id/edit", function(req,res){
 
 
 //UPDATE Bio
-router.put("/navbar/:id", function(req, res){
+router.put("/navbar/:id", isLoggedIn, function(req, res){
  Nav.findByIdAndUpdate(req.params.id, req.body.nav, function(err, updatedNav) {
      if(err){
       console.log(err);

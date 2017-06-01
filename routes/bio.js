@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Bio = require('../models/bio');
 var Nav = require("../models/navbar");
+var isLoggedIn = require("../middleware/index");
 
 //SHOW bio page
 router.get('/bio', function(req,res){
@@ -21,7 +22,7 @@ router.get('/bio', function(req,res){
 });
 
 //SHOW Bio
-router.get("/bio/:id/edit", function(req,res){
+router.get("/bio/:id/edit", isLoggedIn, function(req,res){
    Nav.find({}, function(err, nav){
   if(err){
    console.log(err);
@@ -40,7 +41,7 @@ router.get("/bio/:id/edit", function(req,res){
 
 
 //UPDATE Bio
-router.put("/bio/:id", function(req, res){
+router.put("/bio/:id", isLoggedIn, function(req, res){
  Bio.findByIdAndUpdate(req.params.id, req.body.bio, function(err, updatedBio) {
      if(err){
       console.log(err);

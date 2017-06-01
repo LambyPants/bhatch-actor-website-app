@@ -13,12 +13,14 @@ var photosRoutes = require("./routes/photos");
 var bioRoutes = require("./routes/bio");
 var navRoutes = require("./routes/navbar");
 var indexRoutes = require("./routes/index");
+var quoteRoutes = require("./routes/quote");
 
 //Models Config
 var Announcement = require("./models/announcement");
 var Photo = require("./models/photos");
 var Nav = require("./models/navbar");
 var User = require("./models/user");
+var Quote = require("./models/quote");
 mongoose.connect('mongodb://localhost/bhatch_portfolio_app');
 
 //App Config
@@ -51,17 +53,6 @@ app.use(function(req,res,next){
 
 
 //General Routes
-
-//INDEX Route
-app.get('/', function(req,res){
- Nav.find({}, function(err, nav){
-  if(err){
-   console.log(err);
-  } else {
-   res.render("index", {nav: nav});
-  }
- });
-});
 
 
 //SHOW contact page
@@ -106,6 +97,7 @@ app.use(photosRoutes);
 app.use(bioRoutes);
 app.use(navRoutes);
 app.use(indexRoutes);
+app.use(quoteRoutes);
 
 // //Database Seed
 
@@ -142,6 +134,18 @@ app.use(indexRoutes);
 //  } else {
 //   console.log(nav);
 //  }
+// });
+
+// var newQuote = new Quote({
+//  text: "An Amazing Performer. Focused. Incredible. Intense. --Tony Robbins"
+// });
+
+// newQuote.save(function(err, quote){
+// if(err){
+//  console.log(err);
+// } else {
+//  console.log(quote);
+// }
 // });
 
 app.listen(process.env.PORT, process.env.IP, function(){

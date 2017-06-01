@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var Announcement = require('../models/announcement');
 var Nav = require("../models/navbar");
-
+var isLoggedIn = require("../middleware/index");
 //NEW Announcement
-router.get('/media/new', function(req,res){
+router.get('/media/new', isLoggedIn, function(req,res){
    Nav.find({}, function(err, nav){
   if(err){
    console.log(err);
@@ -16,7 +16,7 @@ router.get('/media/new', function(req,res){
 
 //CREATE Announcement
 
-router.post('/media', function(req,res){
+router.post('/media', isLoggedIn, function(req,res){
  req.body.announcement.text = req.sanitize(req.body.announcement.text);
 var formData = req.body.announcement;
 Announcement.create(formData, function(err, newAnnouncement){
@@ -29,7 +29,7 @@ Announcement.create(formData, function(err, newAnnouncement){
 });
 
 //SHOW Announcement 
-router.get("/media/:id/edit", function(req, res){
+router.get("/media/:id/edit", isLoggedIn, function(req, res){
    Nav.find({}, function(err, nav){
   if(err){
    console.log(err);
@@ -45,7 +45,7 @@ router.get("/media/:id/edit", function(req, res){
 });
 });
 //UPDATE Announcement
-router.put("/media/:id", function(req,res){
+router.put("/media/:id", isLoggedIn, function(req,res){
  Announcement.findByIdAndUpdate(req.params.id, req.body.announcement, function(err, updatedAnnouncement){
   if(err){
    console.log(err);
@@ -56,7 +56,7 @@ router.put("/media/:id", function(req,res){
 });
 
 //DESTROY Announcment
-router.delete("/:id", function(req,res){
+router.delete("/:id", isLoggedIn, function(req,res){
  Announcement.findByIdAndRemove(req.params.id, function(err, announcement){
   if(err){
    console.log(err);

@@ -2,9 +2,12 @@ var express = require('express');
 var router = express.Router();
 var Photo = require('../models/photos');
 var Nav = require("../models/navbar");
+var isLoggedIn = require("../middleware/index");
+
+
 //NEW Photo
 
-router.get('/media/photos/new', function(req,res){
+router.get('/media/photos/new', isLoggedIn, function(req,res){
    Nav.find({}, function(err, nav){
   if(err){
    console.log(err);
@@ -18,7 +21,7 @@ router.get('/media/photos/new', function(req,res){
 
 //CREATE Photo
 
-router.post('/media/photos', function(req,res){
+router.post('/media/photos', isLoggedIn, function(req,res){
  var formData = req.body.photo;
  Photo.create(formData, function(err, newPhoto){
   if(err){
@@ -32,7 +35,7 @@ router.post('/media/photos', function(req,res){
 
 
 //SHOW Photo
-router.get("/media/photos/:id/edit", function(req,res){
+router.get("/media/photos/:id/edit", isLoggedIn, function(req,res){
   Nav.find({}, function(err, nav){
   if(err){
    console.log(err);
@@ -51,7 +54,7 @@ router.get("/media/photos/:id/edit", function(req,res){
 
 //UPDATE Photo
 
-router.put("/media/photos/:id", function(req,res){
+router.put("/media/photos/:id", isLoggedIn, function(req,res){
  Photo.findByIdAndUpdate(req.params.id, req.body.photo, function(err, updatedPhoto){
   if(err){
    console.log(err);
@@ -63,7 +66,7 @@ router.put("/media/photos/:id", function(req,res){
 
 
 //DESTROY Photo
-router.delete("/photos/:id", function(req,res){
+router.delete("/photos/:id", isLoggedIn, function(req,res){
  Photo.findByIdAndRemove(req.params.id, function(err, photo){
   if(err){
    console.log(err);

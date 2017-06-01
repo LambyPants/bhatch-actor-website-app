@@ -12,8 +12,12 @@
             </div>
         </div>
     <div class="testimonials">
-        <h4>
-            <em>"An amazing performer. focused, incredible. Intense." --Tony Robbins</em>
+        <h4> <% quote.forEach(function(quote){ %>
+            <em><%-quote.text%></em>
+                  <% if(currentUser) {  %>
+   <a id="white-link" href="/quote/<%=quote._id%>/edit" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
+    <% } %>
+            <% }); %>
         </h4>
     </div>
     </div>

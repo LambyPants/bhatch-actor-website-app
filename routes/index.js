@@ -3,6 +3,8 @@ var router = express.Router();
 var passport = require('passport');
 var User = require("../models/user");
 var Nav = require("../models/navbar");
+var Announcement = require("../models/announcement");
+var Photo = require("../models/photos");
 
 //SHOW Signup
 router.get('/register', function(req,res){
@@ -63,6 +65,44 @@ function isLoggedIn(req, res, next){
  }
  res.redirect("/login");
 }
+
+
+//General Routes
+
+
+//SHOW contact page
+router.get('/contact', function(req,res){
+ Nav.find({}, function(err, nav){
+  if(err){
+   console.log(err);
+  } else {
+   res.render("contact", {nav: nav});
+  }
+ });
+});
+
+//SHOW media page
+router.get('/media', function(req,res){
+  Nav.find({}, function(err, nav){
+  if(err){
+   console.log(err);
+  } else {
+ Announcement.find({}, function(err, announcement){
+  if(err) {
+   console.log(err);
+  } else {
+  Photo.find({}, function(err, photo){
+   if(err){
+    console.log(err);
+   } else {
+    res.render("media", {announcement: announcement, photo: photo, nav: nav});
+   }
+  });
+  }
+ });
+  }
+ });
+});
 
 
 module.exports = router;

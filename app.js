@@ -16,11 +16,8 @@ var indexRoutes = require("./routes/index");
 var quoteRoutes = require("./routes/quote");
 
 //Models Config
-var Announcement = require("./models/announcement");
-var Photo = require("./models/photos");
-var Nav = require("./models/navbar");
 var User = require("./models/user");
-var Quote = require("./models/quote");
+
 mongoose.connect('mongodb://localhost/bhatch_portfolio_app');
 
 //App Config
@@ -50,45 +47,6 @@ app.use(function(req,res,next){
  res.locals.currentUser = req.user;
  next();
 });
-
-
-//General Routes
-
-
-//SHOW contact page
-app.get('/contact', function(req,res){
- Nav.find({}, function(err, nav){
-  if(err){
-   console.log(err);
-  } else {
-   res.render("contact", {nav: nav});
-  }
- });
-});
-
-//SHOW media page
-app.get('/media', function(req,res){
-  Nav.find({}, function(err, nav){
-  if(err){
-   console.log(err);
-  } else {
- Announcement.find({}, function(err, announcement){
-  if(err) {
-   console.log(err);
-  } else {
-  Photo.find({}, function(err, photo){
-   if(err){
-    console.log(err);
-   } else {
-    res.render("media", {announcement: announcement, photo: photo, nav: nav});
-   }
-  });
-  }
- });
-  }
- });
-});
-
 
 
 

@@ -31,7 +31,7 @@ app.use(expressSanitizer());
 app.use(methodOverride('_method'));
 
 //Passport Config
-var secret = process.env.SECRET;  console.log(secret);
+var secret = process.env.SECRET;  
 
 app.use(require("express-session")({
  secret: secret,

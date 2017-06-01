@@ -18,7 +18,11 @@ var quoteRoutes = require("./routes/quote");
 //Models Config
 var User = require("./models/user");
 
-mongoose.connect('mongodb://localhost/bhatch_portfolio_app');
+
+var url = process.env.DATABASEURL || 'mongodb://localhost/bhatch_portfolio_app';
+console.log(url);
+mongoose.connect(url);
+
 
 //App Config
 app.use(bodyParser.urlencoded({extended:true}));

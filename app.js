@@ -4,17 +4,21 @@ var mongoose    = require("mongoose");
 var bodyParser = require("body-parser");
 var methodOverride = require('method-override');
 var expressSanitizer = require('express-sanitizer');
+var passport = require('passport');
+var LocalStrategy = require('passport-local');
 
 //Routes Config
 var announcementRoutes = require("./routes/announcements");
 var photosRoutes = require("./routes/photos");
 var bioRoutes = require("./routes/bio");
 var navRoutes = require("./routes/navbar");
+var indexRoutes = require("./routes/index");
 
 //Models Config
 var Announcement = require("./models/announcement");
 var Photo = require("./models/photos");
 var Nav = require("./models/navbar");
+var User = require("./models/user");
 mongoose.connect('mongodb://localhost/bhatch_portfolio_app');
 
 //App Config
@@ -23,6 +27,28 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(expressSanitizer());
 app.use(methodOverride('_method'));
+
+//Passport Config
+var secret = process.env.SECRET;  console.log(secret);
+
+app.use(require("express-session")({
+ secret: secret,
+ resave: false,
+ saveUninitialized: false
+ 
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use(function(req,res,next){
+ res.locals.currentUser = req.user;
+ next();
+});
+
 
 //General Routes
 
@@ -74,10 +100,12 @@ app.get('/media', function(req,res){
 
 
 
+
 app.use(announcementRoutes);
 app.use(photosRoutes);
 app.use(bioRoutes);
 app.use(navRoutes);
+app.use(indexRoutes);
 
 // //Database Seed
 
